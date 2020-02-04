@@ -54,9 +54,9 @@ echo "*******************************************************"
 echo "Setup environnement .htaccess"
 echo "*******************************************************"
 pwd
-if [ -f "public/.htaccess.${environnement}" ]; then
-    cp "public/.htaccess.${environnement}" public/.htaccess
-    echo "Setting public/.htaccess.${environnement}"
+if [ -f ".htaccess.${environnement}" ]; then
+    cp ".htaccess.${environnement}" .htaccess
+    echo "Setting .htaccess.${environnement}"
 fi
 
 echo "*******************************************************"
