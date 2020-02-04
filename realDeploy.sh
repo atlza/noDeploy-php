@@ -50,63 +50,6 @@ echo "*******************************************************"
 composer install --no-dev --prefer-dist --optimize-autoloader
 echo ' '
 
-# Install new npm packages
-echo "*******************************************************"
-echo "INSTALLING NPM PACKAGES"
-echo "*******************************************************"
-npm  install
-echo ' '
-
-# Generating dist assets
-echo "*******************************************************"
-echo "Generating assets"
-echo "*******************************************************"
-npm run prod
-echo ' '
-
-echo "*******************************************************"
-echo "Setting .env file from .env.${environnement}"
-rm -f .env
-cp .env.${environnement} .env
-echo "*******************************************************"
-echo ' '
-
-# Clear caches
-echo "CLEARING CACHE"
-php artisan cache:clear
-echo "*******************************************************"
-echo ' '
-
-# Clear and cache routes
-echo "CLEARING AND CACHE ROUTES"
-php artisan route:cache
-echo "*******************************************************"
-echo ' '
-
-# Clear and cache config
-echo "CLEARING AND CACHE CONFIG"
-php artisan config:cache
-echo "*******************************************************"
-echo ' '
-
-echo "*******************************************************"
-echo "Updating DB with artisan"
-echo "*******************************************************"
-php artisan migrate --force
-echo ' '
-
-# Clear expired password reset tokens
-echo "CLEARING EXPIRED PASSWORD RESET TOKENS"
-php artisan auth:clear-resets
-echo "*******************************************************"
-echo ' '
-
-echo "*******************************************************"
-echo "Give righ access on storage"
-echo "*******************************************************"
-pwd
-chmod -R 0775 storage/
-
 echo "*******************************************************"
 echo "Setup environnement .htaccess"
 echo "*******************************************************"
@@ -115,21 +58,6 @@ if [ -f "public/.htaccess.${environnement}" ]; then
     cp "public/.htaccess.${environnement}" public/.htaccess
     echo "Setting public/.htaccess.${environnement}"
 fi
-
-echo "*******************************************************"
-echo "Creating sylinkks for shared folders"
-echo "*******************************************************"
-pwd
-for folder in "${shared[@]}"
-do
-   :
-   if [ ! -d "../../shared/${folder}" ]; then
-       mkdir -p "../..shared/${folder}"
-       chmod -R 0775 "../..shared/${folder}/"
-       echo " -> Creating directory: ../../..shared/${folder}"
-   fi
-   ln -s "../../../shared/${folder}" ${folder}
-done
 
 echo "*******************************************************"
 echo "Removing old current symlink"

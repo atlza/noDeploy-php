@@ -31,7 +31,7 @@ Give current user permission to execute both deploy.sh and realDeploy.sh
 We also give others users right to execute realDeploy.sh so user deploy can execute the file.
 
 ```
-git clone https://github.com/atlza/noDeploy.git
+git clone https://github.com/atlza/noDeploy-php.git
 ```
 
 ## How to use it
@@ -74,4 +74,3 @@ or for staging
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](license.md) file for details
-
