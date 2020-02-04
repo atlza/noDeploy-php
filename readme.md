@@ -1,11 +1,12 @@
-# noDeploy
+# noDeploy PHP
 
 You don't need a deploying app.    
-Deploy your laravel app with a bash script.
+Deploy your PHP app with a simple bash script.
+Please see specific version for laravel here: https://github.com/atlza/noDeploy/
 
 ## Getting Started
 
-This script was tested to deploy a laravel App in a LAMP environment from a git repository and a tag version.
+This script was tested to deploy a php App in a LAMP environment from a git repository and a tag version.
 It assumes that you have git, npm and composer installed and working.
 
 ### Prerequisites
@@ -21,8 +22,6 @@ You will need :
  - clone tag into destination directory  
  - install composer dependencies
  - install npm dependencies
- - run webpack
- - run artisan for DB updates and clear caches  
  - move symlink from previous release to new one (no downtime)
 
 ### Installing
@@ -76,6 +75,3 @@ or for staging
 
 This project is licensed under the MIT License - see the [LICENSE.md](license.md) file for details
 
-## Acknowledgments
-
-* Thanks to Charlie Etienne [Web nancy](https://web-nancy.fr/) for original script and idea
