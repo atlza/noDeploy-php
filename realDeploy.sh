@@ -63,7 +63,7 @@ echo "*******************************************************"
 echo "Creating sylinkks for shared folders"
 echo "*******************************************************"
 pwd
-cd ..
+cd ../../
 pwd
 for folder in "${shared[@]}"
 do
@@ -74,14 +74,17 @@ do
        echo " -> Creating directory: shared/${folder}"
    fi
    cd ${deployPath}
+   pwd
    ln -s "../../shared/${folder}" ${folder}
 done
 
 echo "*******************************************************"
 echo "Removing old current symlink"
 echo "*******************************************************"
+cd ${deployPath}
 pwd
 cd ../../
+pwd
 rm current
 
 echo "*******************************************************"
