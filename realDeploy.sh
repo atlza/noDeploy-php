@@ -63,15 +63,18 @@ echo "*******************************************************"
 echo "Creating sylinkks for shared folders"
 echo "*******************************************************"
 pwd
+cd ..
+pwd
 for folder in "${shared[@]}"
 do
    :
-   if [ ! -d "${deployPath}/shared/${folder}" ]; then
-       mkdir -p "${deployPath}/shared/${folder}"
-       chmod -R 0775 "${deployPath}/shared/${folder}/"
-       echo " -> Creating directory: ${deployPath}/shared/${folder}"
+   if [ ! -d "shared/${folder}" ]; then
+       mkdir -p "shared/${folder}"
+       chmod -R 0775 "shared/${folder}/"
+       echo " -> Creating directory: shared/${folder}"
    fi
-   ln -s "${deployPath}/shared/${folder}" ${folder}
+   cd ${deployPath}
+   ln -s "../../shared/${folder}" ${folder}
 done
 
 echo "*******************************************************"
