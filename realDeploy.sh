@@ -63,7 +63,8 @@ echo "*******************************************************"
 echo "Creating sylinkks for shared folders"
 echo "*******************************************************"
 pwd
-cd ../../
+cd ${deployPath}
+cd ../
 pwd
 for folder in "${shared[@]}"
 do
@@ -73,8 +74,14 @@ do
        chmod -R 0775 "shared/${folder}/"
        echo " -> Creating directory: shared/${folder}"
    fi
-   cd ${deployPath}
-   pwd
+done
+
+cd ${deployPath}
+cd $releaseDate
+pwd
+for folder in "${shared[@]}"
+do
+   :
    ln -s "../../shared/${folder}" ${folder}
 done
 
@@ -83,7 +90,7 @@ echo "Removing old current symlink"
 echo "*******************************************************"
 cd ${deployPath}
 pwd
-cd ../../
+cd ../
 pwd
 rm current
 
