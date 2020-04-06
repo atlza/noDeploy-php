@@ -60,6 +60,21 @@ if [ -f ".htaccess.${environnement}" ]; then
 fi
 
 echo "*******************************************************"
+echo "Creating sylinkks for shared folders"
+echo "*******************************************************"
+pwd
+for folder in "${shared[@]}"
+do
+   :
+   if [ ! -d "${deployPath}/shared/${folder}" ]; then
+       mkdir -p "${deployPath}/shared/${folder}"
+       chmod -R 0775 "${deployPath}/shared/${folder}/"
+       echo " -> Creating directory: ${deployPath}/shared/${folder}"
+   fi
+   ln -s "${deployPath}/shared/${folder}" ${folder}
+done
+
+echo "*******************************************************"
 echo "Removing old current symlink"
 echo "*******************************************************"
 pwd
