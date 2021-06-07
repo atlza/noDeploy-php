@@ -53,6 +53,26 @@ deployPath="/path/to/deploy"
 #your git repository
 gitPath="git@github.com:user/repo.git"
 ```
+
+In your deploy path the directory structure must look like :
+```
+/path/
+  |-to/
+    |-deploy/
+      |-environment
+        |-releases
+        |-shared
+```
+
+Edit the user used to deploy in deploy scrip (must have write access to deploy path and be in apache groupe)
+```
+vim deploy.sh
+```
+in the file edit the line
+```
+ME="deploy"
+```
+
 Run the deploy script   
 ```
 ./deploy.sh prod
@@ -68,7 +88,7 @@ or for staging
 
 ## Authors
 
-* **Guillaume Le Roy** [Mu Studio](http://work.withmu.com)
+* **Guillaume Le Roy** [Mu Studio](https://work.withmu.com)
 
 
 ## License

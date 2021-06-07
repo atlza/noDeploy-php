@@ -6,7 +6,7 @@ read versionTag
 #versionTag='0.0.1'
 
 #where you app should be deployed
-deployPath="/path/to/deploy/${environnement}"
+deployPath="/path/to/deploy/${environnement}/releases"
 
 #your git repository
 gitPath="git@github.com:user/repo.git"
